@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="VYVO — Connect. Create. VYVO.">
+  <meta name="theme-color" content="#0b0b10">
+  <title>VYVO — Connect. Create. VYVO.</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="app">
+    <div class="landing" id="landing">
+      <nav class="landing-nav">
+        <div class="brand"><span class="brand-mark">V</span> VYVO</div>
+        <button class="ghost-btn" data-open-auth="login">Log In</button>
+      </nav>
+      <main class="hero">
+        <div class="hero-copy">
+          <span class="eyebrow">THE NEXT SOCIAL SPACE</span>
+          <h1>CONNECT.<br><span>CREATE.</span><br>VYVO.</h1>
+          <p>Share your world, discover ideas, and connect with people who inspire you.</p>
+          <div class="hero-actions">
+            <button class="primary-btn" data-open-auth="signup">Get Started</button>
+            <button class="secondary-btn" data-enter-demo>Explore VYVO</button>
+          </div>
+          <div class="hero-stats">
+            <span><strong>12K+</strong> creators</span>
+            <span><strong>48K+</strong> posts</span>
+            <span><strong>24/7</strong> discovery</span>
+          </div>
+        </div>
+        <div class="hero-visual" aria-hidden="true">
+          <div class="orb orb-a"></div><div class="orb orb-b"></div>
+          <div class="mock-card main-card">
+            <div class="mock-top"><span class="avatar gradient-avatar">V</span><div><b>@vyvo_creator</b><small>Just now</small></div><span>•••</span></div>
+            <div class="mock-image">VYVO</div>
+            <div class="mock-actions">♡　◌　↗　⌑</div>
+            <b>2,481 likes</b><p>Creating something new ✨</p>
+          </div>
+          <div class="float-card notification-card">♥ <b>Alex</b> liked your post</div>
+          <div class="float-card follow-card">＋ <b>@travelwave</b> followed you</div>
+        </div>
+      </main>
+    </div>
+
+    <div class="auth-overlay hidden" id="authOverlay">
+      <div class="auth-card">
+        <button class="close-btn" data-close-auth aria-label="Close">×</button>
+        <div class="brand centered"><span class="brand-mark">V</span> VYVO</div>
+        <div id="loginForm">
+          <h2>Welcome back</h2><p class="muted">Log in to continue your VYVO journey.</p>
+          <label>Email or Username<input id="loginIdentity" type="text" autocomplete="username" placeholder="you@example.com"></label>
+          <label>Password<input id="loginPassword" type="password" autocomplete="current-password" placeholder="••••••••"></label>
+          <div class="form-row"><label class="check"><input type="checkbox"> Remember me</label><button class="link-btn" data-forgot>Forgot password?</button></div>
+          <button class="primary-btn full" data-login>Log In</button>
+          <button class="secondary-btn full" data-demo-login>Use Demo Account</button>
+          <p class="switch">New to VYVO? <button class="link-btn" data-switch-auth="signup">Create account</button></p>
+        </div>
+        <div id="signupForm" class="hidden">
+          <h2>Create your account</h2><p class="muted">Your next chapter starts here.</p>
+          <label>Full Name<input id="signupName" type="text" placeholder="Alex Carter"></label>
+          <label>Username<input id="signupUsername" type="text" placeholder="alexvyvo"></label>
+          <label>Email<input id="signupEmail" type="email" placeholder="you@example.com"></label>
+          <label>Password<input id="signupPassword" type="password" placeholder="At least 6 characters"></label>
+          <div class="password-meter"><span id="passwordMeter"></span></div>
+          <label>Confirm Password<input id="signupConfirm" type="password" placeholder="Repeat password"></label>
+          <button class="primary-btn full" data-signup>Create Account</button>
+          <p class="switch">Already on VYVO? <button class="link-btn" data-switch-auth="login">Log in</button></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="dashboard hidden" id="dashboard">
+      <header class="topbar">
+        <button class="mobile-menu" id="mobileMenu" aria-label="Open menu">☰</button>
+        <div class="brand"><span class="brand-mark">V</span> VYVO</div>
+        <div class="searchbox"><span>⌕</span><input id="globalSearch" placeholder="Search people, posts, hashtags..." aria-label="Search"></div>
+        <div class="top-actions"><button class="icon-btn" data-page="notifications" aria-label="Notifications">♡<i class="badge">3</i></button><button class="avatar small-avatar" data-page="profile">R</button></div>
+      </header>
+
+      <div class="app-shell">
+        <aside class="sidebar" id="sidebar">
+          <nav>
+            <button class="nav-item active" data-page="home">⌂ <span>Home</span></button>
+            <button class="nav-item" data-page="explore">⌕ <span>Explore</span></button>
+            <button class="nav-item" data-page="reels">▷ <span>Reels</span></button>
+            <button class="nav-item" data-page="messages">✉ <span>Messages</span><b class="nav-count">2</b></button>
+            <button class="nav-item" data-page="notifications">♡ <span>Notifications</span><b class="nav-count">3</b></button>
+            <button class="nav-item" data-page="create">＋ <span>Create</span></button>
+            <button class="nav-item" data-page="profile">◎ <span>Profile</span></button>
+            <button class="nav-item" data-page="settings">⚙ <span>Settings</span></button>
+          </nav>
+          <div class="sidebar-bottom"><button class="nav-item" data-logout>↪ <span>Log out</span></button></div>
+        </aside>
+
+        <main class="content" id="content"></main>
+
+        <aside class="right-rail" id="rightRail">
+          <div class="panel profile-mini">
+            <div class="profile-line"><div class="avatar gradient-avatar">R</div><div><b id="miniName">Rishav</b><small>@rishavvyvo</small></div><button class="link-btn">Switch</button></div>
+          </div>
+          <div class="panel"><div class="panel-title">Suggested for you <button class="link-btn">See all</button></div>
+            <div class="suggestion"><span class="avatar a2">A</span><div><b>alexvyvo</b><small>Creative Hub</small></div><button class="follow-mini">Follow</button></div>
+            <div class="suggestion"><span class="avatar a3">T</span><div><b>travelwave</b><small>12 mutuals</small></div><button class="follow-mini">Follow</button></div>
+            <div class="suggestion"><span class="avatar a4">S</span><div><b>techspace</b><small>New to VYVO</small></div><button class="follow-mini">Follow</button></div>
+          </div>
+          <p class="tiny-footer">About · Help · Privacy · Terms · Contact<br>© 2026 VYVO</p>
+        </aside>
+      </div>
+
+      <nav class="bottom-nav">
+        <button data-page="home">⌂<span>Home</span></button><button data-page="explore">⌕<span>Explore</span></button><button data-page="create">＋<span>Create</span></button><button data-page="notifications">♡<span>Alerts</span></button><button data-page="profile">◎<span>Profile</span></button>
+      </nav>
+    </div>
+
+    <div class="modal hidden" id="modal"><div class="modal-card" id="modalCard"></div></div>
+    <div class="toast-container" id="toasts"></div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
